@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เข้าสู่ระบบ - ดูแลสุขภาพใจ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    :root {
+      --brand-teal: #0e5c54;
+      --brand-teal-hover: #0a4640;
+      --brand-teal-light: #e6f4f2;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --input-border: #cbd5e1;
+      --card-bg: rgba(255, 255, 255, 0.96);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Prompt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: url('images/login-bg.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 3rem;
+      color: var(--text-dark);
+      position: relative;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Brand Navigation Header */
+    .top-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      z-index: 10;
+    }
+
+    .brand-logo-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--brand-teal);
+    }
+
+    .brand-logo-text {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--brand-teal);
+      letter-spacing: -0.3px;
+    }
+
+    /* Main Split Wrapper */
+    .login-main-container {
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3.5rem;
+      padding: 1.5rem 0;
+      z-index: 10;
+      flex: 1;
+    }
+
+    /* Left Hero Banner Column */
+    .hero-left-column {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-self: flex-start;
+      margin-top: 1.25rem;
+    }
+
+    .hero-heading-main {
+      font-size: 3.4rem;
+      font-weight: 800;
+      color: var(--brand-teal);
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+
+    .hero-heading-sub {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--brand-teal);
+      line-height: 1.2;
+      margin-top: 0.25rem;
+      letter-spacing: -0.8px;
+    }
+
+    .hero-description {
+      font-size: 1.25rem;
+      color: #334155;
+      font-weight: 500;
+      margin-top: 1.25rem;
+      line-height: 1.6;
+    }
+
+    /* Right Auth Card Column */
+    .auth-right-column {
+      flex: 0.9;
+      display: flex;
+      justify-content: flex-end;
+      margin-left: auto;
+      transform: translateX(65px);
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 470px;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 32px;
+      padding: 3rem 2.5rem 2.5rem 2.5rem;
+      box-shadow: 
+        0 25px 60px -15px rgba(14, 92, 84, 0.18),
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+      animation: cardFadeIn 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Card Header */
+    .card-header-box {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .card-heart-emblem {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 0.85rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-heart-emblem svg {
+      width: 44px;
+      height: 44px;
+      stroke: var(--brand-teal);
+    }
+
+    .card-welcome-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--brand-teal);
+      letter-spacing: -0.5px;
+    }
+
+    .card-welcome-sub {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+      font-weight: 500;
+    }
+
+    /* Form Fields Styling */
+    .form-group {
+      margin-bottom: 1.45rem;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.55rem;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      transition: transform 0.25s ease;
+    }
+
+    .input-wrapper:focus-within {
+      transform: translateY(-2px);
+    }
+
+    .input-wrapper svg.field-icon {
+      position: absolute;
+      left: 1.25rem;
+      width: 20px;
+      height: 20px;
+      stroke: #94a3b8;
+      transition: stroke 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    .input-wrapper:focus-within svg.field-icon {
+      stroke: var(--brand-teal);
+      transform: scale(1.1);
+    }
+
+    .form-control {
+      width: 100%;
+      height: 54px;
+      padding-left: 3.3rem;
+      padding-right: 3.3rem;
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      background-color: #f8fafc;
+      border: 1.8px solid #e2e8f0;
+      border-radius: 18px;
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.015), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .form-control::placeholder {
+      color: #94a3b8;
+      font-weight: 400;
+    }
+
+    .form-control:hover {
+      border-color: #cbd5e1;
+      background-color: #ffffff;
+    }
+
+    .form-control:focus {
+      outline: none;
+      background-color: #ffffff;
+      border-color: var(--brand-teal);
+      box-shadow: 
+        0 0 0 4px rgba(14, 92, 84, 0.14),
+        0 8px 20px -4px rgba(14, 92, 84, 0.12);
+    }
+
+    .btn-toggle-eye {
+      position: absolute;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      border-radius: 12px;
+      transition: all 0.22s ease;
+    }
+
+    .btn-toggle-eye:hover {
+      color: var(--brand-teal);
+      background-color: rgba(14, 92, 84, 0.08);
+      transform: scale(1.08);
+    }
+
+    .btn-toggle-eye svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    /* Checkbox & Options Row */
+    .form-options-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .remember-me-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #475569;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .remember-me-label input[type="checkbox"] {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--brand-teal);
+      cursor: pointer;
+    }
+
+    .forgot-link {
+      color: var(--brand-teal);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Primary Submit Button */
+    .btn-submit {
+      width: 100%;
+      height: 54px;
+      background: var(--brand-teal);
+      color: #ffffff;
+      border: none;
+      border-radius: 16px;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 24px -4px rgba(14, 92, 84, 0.35);
+    }
+
+    .btn-submit:hover {
+      background: var(--brand-teal-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -4px rgba(14, 92, 84, 0.45);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .btn-submit svg {
+      width: 20px;
+      height: 20px;
+      stroke: #ffffff;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-submit:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* Alert Message Box */
+    .alert-box {
+      padding: 0.85rem 1.1rem;
+      border-radius: 14px;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: none;
+      align-items: center;
+      gap: 0.65rem;
+      animation: alertSlide 0.3s ease;
+    }
+
+    @keyframes alertSlide {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .alert-danger {
+      background-color: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    .alert-success {
+      background-color: #f0fdfa;
+      color: #0f766e;
+      border: 1px solid #ccfbf1;
+    }
+
+    /* Divider */
+    .divider-row {
+      display: flex;
+      align-items: center;
+      margin: 1.65rem 0 1.35rem 0;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background-color: #e2e8f0;
+    }
+
+    .divider-text {
+      padding: 0 1rem;
+      font-size: 0.82rem;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    /* Demo Fast Login Buttons */
+    .demo-buttons-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .demo-btn-outline {
+      width: 100%;
+      height: 48px;
+      background-color: #ffffff;
+      border: 1.5px solid var(--brand-teal);
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--brand-teal);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.25s ease;
+    }
+
+    .demo-btn-outline:hover {
+      background-color: var(--brand-teal-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(14, 92, 84, 0.15);
+    }
+
+    .demo-btn-outline svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+    }
+
+    /* Bottom Motto Footer */
+    .card-footer-motto {
+      margin-top: 1.75rem;
+      text-align: center;
+      font-size: 0.86rem;
+      color: var(--brand-teal);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .card-footer-motto svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--brand-teal);
+    }
+
+    /* Fullscreen Success Animation Overlay Modal */
+    .success-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(14, 92, 84, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      padding: 1.5rem;
+    }
+
+    .success-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .success-modal-card {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 3.25rem 2.5rem 2.5rem 2.5rem;
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 35px 70px -15px rgba(0, 0, 0, 0.35);
+      transform: scale(0.85) translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .success-modal-overlay.active .success-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .checkmark-wrapper {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 1.4rem auto;
+      border-radius: 50%;
+      background: #f0fdfa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 28px rgba(14, 92, 84, 0.25);
+    }
+
+    .checkmark-svg {
+      width: 62px;
+      height: 62px;
+      stroke-width: 3;
+      stroke: var(--brand-teal);
+    }
+
+    .checkmark-circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 3;
+      stroke: var(--brand-teal);
+      fill: none;
+    }
+
+    .success-modal-overlay.active .checkmark-circle {
+      animation: strokeCircle 0.65s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+
+    .checkmark-check {
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      stroke: var(--brand-teal);
+    }
+
+    .success-modal-overlay.active .checkmark-check {
+      animation: strokeCheck 0.45s cubic-bezier(0.65, 0, 0.45, 1) 0.35s forwards;
+    }
+
+    @keyframes strokeCircle { 100% { stroke-dashoffset: 0; } }
+    @keyframes strokeCheck { 100% { stroke-dashoffset: 0; } }
+
+    .success-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--brand-teal);
+      margin-bottom: 0.4rem;
+    }
+
+    .success-subtitle {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-bottom: 1.75rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background-color: #f1f5f9;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--brand-teal), #2dd4bf);
+      border-radius: 999px;
+      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .success-modal-overlay.active .progress-bar-fill {
+      width: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 960px) {
+      body {
+        padding: 1.5rem;
+      }
+      .login-main-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+      .hero-left-column {
+        text-align: center;
+      }
+      .auth-right-column {
+        margin-left: 0;
+        transform: none;
+        justify-content: center;
+      }
+      .hero-heading-main {
+        font-size: 2.5rem;
+      }
+      .hero-heading-sub {
+        font-size: 2rem;
+      }
+      .auth-right-column {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Fullscreen Heartbeat Preloader -->
+<div id="app-preloader">
+  <div class="preloader-content-box">
+    <div class="preloader-heart-wrapper">
+      <div class="preloader-pulse-ring"></div>
+      <div class="preloader-pulse-ring"></div>
+      <div class="preloader-heart-circle">
+        <svg class="preloader-heart-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="#ef4444" stroke="#ffffff"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="preloader-brand-title">ดูแลสุขภาพใจ</div>
+    <div class="preloader-subtitle-text">
+      <span>กำลังโหลดข้อมูล</span>
+      <span class="preloader-loading-dots">
+        <span></span><span></span><span></span>
+      </span>
+    </div>
+    <svg class="preloader-ecg-line" viewBox="0 0 140 28" fill="none">
+      <polyline class="preloader-ecg-polyline" points="0,14 35,14 45,4 55,24 65,9 75,19 85,14 140,14" stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+<!-- Top Brand Header Logo -->
+<header class="top-brand-header">
+  <div class="brand-logo-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+  </div>
+  <span class="brand-logo-text">ดูแลสุขภาพใจ</span>
+</header>
+
+<!-- Main Split Container -->
+<main class="login-main-container">
+  
+  <!-- Left Column: Hero Title -->
+  <div class="hero-left-column">
+    <h1 class="hero-heading-main">พื้นที่ปลอดภัย</h1>
+    <h2 class="hero-heading-sub">สำหรับการดูแลสุขภาพใจ</h2>
+    <p class="hero-description">เริ่มต้นดูแลใจ ในแบบของคุณ</p>
+  </div>
+
+  <!-- Right Column: Auth Form Card -->
+  <div class="auth-right-column">
+    <div class="auth-card">
+      
+      <div class="card-header-box">
+        <div class="card-heart-emblem">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </div>
+        <h2 class="card-welcome-title">ยินดีต้อนรับกลับ</h2>
+        <p class="card-welcome-sub">เข้าสู่ระบบเพื่อเริ่มต้นดูแลใจของคุณ</p>
+      </div>
+
+      <!-- Alert Box -->
+      <div id="alertBox" class="alert-box"></div>
+
+      <!-- Login Form -->
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username" class="form-label">ชื่อผู้ใช้งาน หรือ อีเมล</label>
+          <div class="input-wrapper">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <input type="text" id="username" class="form-control" placeholder="กรอกชื่อผู้ใช้งานของคุณ" required autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">รหัสผ่าน</label>
+          <div class="input-wrapper">
+            <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <input type="password" id="password" class="form-control" placeholder="กรอกรหัสผ่านของคุณ" required autocomplete="current-password">
+            <button type="button" id="togglePasswordBtn" class="btn-toggle-eye" title="แสดง/ซ่อนรหัสผ่าน">
+              <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-options-row">
+          <label class="remember-me-label">
+            <input type="checkbox" id="rememberMe">
+            <span>จดจำฉัน</span>
+          </label>
+          <a href="#" class="forgot-link" onclick="alert('กรุณาติดต่อผู้ดูแลระบบเพื่อรีเซ็ตรหัสผ่าน'); return false;">ลืมรหัสผ่าน?</a>
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn-submit">
+          <span>เข้าสู่ระบบ</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Bottom Motto -->
+      <div class="card-footer-motto">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span>ให้ทุกวันเป็นวันที่ใจดีกับตัวเอง</span>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- Fullscreen Success Animation Modal -->
+<div id="loginSuccessModal" class="success-modal-overlay">
+  <div class="success-modal-card">
+    <div class="checkmark-wrapper">
+      <svg class="checkmark-svg" viewBox="0 0 52 52">
+        <circle class="checkmark-circle" cx="26" cy="26" r="23" fill="none"/>
+        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+      </svg>
+    </div>
+    <h3 class="success-title">เข้าสู่ระบบสำเร็จ!</h3>
+    <p id="successMessageText" class="success-subtitle">กำลังนำท่านเข้าสู่ระบบดูแลสุขภาพใจ...</p>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/login.js"></script>
+</body>
+</html>

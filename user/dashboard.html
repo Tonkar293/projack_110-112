@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - ดูแลสุขภาพใจ</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/user-pages.css">
+</head>
+<body>
+
+<!-- Fullscreen Heartbeat Preloader -->
+<div id="app-preloader">
+  <div class="preloader-content-box">
+    <div class="preloader-heart-wrapper">
+      <div class="preloader-pulse-ring"></div>
+      <div class="preloader-pulse-ring"></div>
+      <div class="preloader-heart-circle">
+        <svg class="preloader-heart-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="#ef4444" stroke="#ffffff"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="preloader-brand-title">ดูแลสุขภาพใจ</div>
+    <div class="preloader-subtitle-text">
+      <span>กำลังโหลดข้อมูล</span>
+      <span class="preloader-loading-dots">
+        <span></span><span></span><span></span>
+      </span>
+    </div>
+    <svg class="preloader-ecg-line" viewBox="0 0 140 28" fill="none">
+      <polyline class="preloader-ecg-polyline" points="0,14 35,14 45,4 55,24 65,9 75,19 85,14 140,14" stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+
+<div class="app-layout">
+  <!-- Mobile Header -->
+  <div class="mobile-header">
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <span>ดูแลสุขภาพใจ</span>
+    </div>
+    <button class="mobile-toggle-btn" aria-label="เปิดเมนู"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="app-sidebar">
+    <div>
+      <div class="sidebar-header">
+        <span class="sidebar-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </span>
+        <span class="sidebar-title">ดูแลสุขภาพใจ</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li class="menu-item active">
+          <a href="dashboard.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="assessment.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span>แบบประเมินอาการ</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="result.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            <span>ผลการประเมิน</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="history.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            <span>ประวัติการประเมิน</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="diary.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>บันทึกอาการ</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="consultation.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span>ปรึกษาผู้เชี่ยวชาญ</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="videos.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            <span>วิดีโอการดูแล</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="profile.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>โปรไฟล์</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="contact.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>ติดต่อเรา</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="btn-sidebar-logout btn-logout-action">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        <span>ออกจากระบบ</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="app-main">
+    <!-- Welcome Header Card -->
+    <div class="header-banner-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+      <div>
+        <h1 id="dashTimeGreeting">สวัสดีครับคุณ <span id="userWelcomeName">ผู้ใช้งาน</span></h1>
+        <p id="dailyQuoteText" style="font-style: italic; color: #0d9488; font-weight: 500; margin-top: 0.35rem;">
+          "การดูแลสุขภาพใจในทุกๆ วัน คือความรักตัวเองที่ดีที่สุด"
+        </p>
+      </div>
+      <div style="background: rgba(13, 148, 136, 0.08); border: 1px solid #ccfbf1; padding: 0.65rem 1.25rem; border-radius: var(--radius-full); display: flex; align-items: center; gap: 0.65rem; color: #0f766e; font-size: 0.92rem; font-weight: 600;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        <span id="dashCurrentDate">วันศุกร์ที่ 9 ตุลาคม 2026</span>
+      </div>
+    </div>
+
+    <!-- Quick 1-Click Mood Check-in Strip -->
+    <div class="card" style="margin-bottom: 2rem; background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.15rem;">
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); display: flex; align-items: center; gap: 0.55rem;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+            <span>เช็กอินสภาวะอารมณ์ของคุณวันนี้</span>
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">กดเลือกระดับความรู้สึกในตอนนี้เพื่อบันทึกด่วนลงในบันทึกประจำวัน (เลือกได้ 1 สถานะ)</p>
+        </div>
+        <a href="diary.html" class="btn btn-outline" style="font-size: 0.88rem; padding: 0.45rem 1rem;">ดูประวัติอารมณ์ทั้งหมด</a>
+      </div>
+
+      <div class="mood-grid-5">
+        <div class="mood-card-option dash-mood-btn" data-level="1">
+          <span class="mood-number-badge">ระดับ 1</span>
+          <img src="../images/mood-1.png" alt="เสียใจมาก" class="mood-emoji-img">
+          <span class="mood-text-label">เสียใจมาก</span>
+        </div>
+        <div class="mood-card-option dash-mood-btn" data-level="2">
+          <span class="mood-number-badge">ระดับ 2</span>
+          <img src="../images/mood-2.png" alt="กังวล" class="mood-emoji-img">
+          <span class="mood-text-label">กังวล</span>
+        </div>
+        <div class="mood-card-option dash-mood-btn" data-level="3">
+          <span class="mood-number-badge">ระดับ 3</span>
+          <img src="../images/mood-3.png" alt="เฉยๆ / ปกติ" class="mood-emoji-img">
+          <span class="mood-text-label">เฉยๆ / ปกติ</span>
+        </div>
+        <div class="mood-card-option dash-mood-btn" data-level="4">
+          <span class="mood-number-badge">ระดับ 4</span>
+          <img src="../images/mood-4.png" alt="ผ่อนคลาย" class="mood-emoji-img">
+          <span class="mood-text-label">ผ่อนคลาย</span>
+        </div>
+        <div class="mood-card-option dash-mood-btn" data-level="5">
+          <span class="mood-number-badge">ระดับ 5</span>
+          <img src="../images/mood-5.png" alt="มีความสุข" class="mood-emoji-img">
+          <span class="mood-text-label">มีความสุข</span>
+        </div>
+      </div>
+
+      <!-- Active Status Display Bar -->
+      <div id="dashMoodStatusContainer" style="margin-top: 1.25rem; display: none; align-items: center; gap: 0.75rem; background: #e6f4f2; border: 1.5px solid #0e5c54; padding: 0.85rem 1.25rem; border-radius: 16px; color: #0e5c54; font-weight: 600;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span>สถานะอารมณ์วันนี้ของคุณ: <strong id="dashMoodStatusText" style="color: #07332f; font-weight: 700; font-size: 1.05rem;">มีความสุข (ระดับ 5)</strong></span>
+      </div>
+    </div>
+
+    <!-- Current Health Status Overview Card -->
+    <div class="card" style="margin-bottom: 2rem; border-left: 5px solid #0d9488;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+        <div style="display: flex; align-items: center; gap: 1.25rem;">
+          <div style="width: 54px; height: 54px; border-radius: 50%; background: #e6f2f4; color: #0d9488; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <div style="font-size: 0.88rem; font-weight: 600; color: var(--text-secondary);">ผลการประเมินล่าสุดของคุณ</div>
+            <div style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin-top: 0.15rem;" id="dashLatestScore">กำลังดึงข้อมูล...</div>
+          </div>
+        </div>
+        <div>
+          <span id="dashLatestBadge" class="badge badge-low" style="font-size: 0.95rem; padding: 0.5rem 1.15rem;">ปกติ</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top 4 Action Cards Grid -->
+    <div class="dash-action-grid">
+      <!-- Card 1 -->
+      <div class="action-card">
+        <div>
+          <div class="action-card-header">
+            <div class="action-card-icon icon-teal">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <div class="action-card-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </div>
+          <div class="action-card-title">แบบประเมินอาการ</div>
+          <div class="action-card-desc">ทำแบบประเมินสุขภาพจิตและประเมินระดับความเสี่ยง</div>
+        </div>
+        <a href="assessment.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">ทำแบบประเมิน</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="action-card">
+        <div>
+          <div class="action-card-header">
+            <div class="action-card-icon icon-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <div class="action-card-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </div>
+          <div class="action-card-title">ผลการประเมินล่าสุด</div>
+          <div class="action-card-desc">ตรวจสอบคะแนนและคำแนะนำในการดูแลตนเอง</div>
+        </div>
+        <a href="result.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">ดูผลการประเมิน</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="action-card">
+        <div>
+          <div class="action-card-header">
+            <div class="action-card-icon icon-indigo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            </div>
+            <div class="action-card-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </div>
+          <div class="action-card-title">ประวัติการประเมิน</div>
+          <div class="action-card-desc">ติดตามแนวโน้มและการเปลี่ยนแปลงของสุขภาพจิต</div>
+        </div>
+        <a href="history.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">ดูประวัติ</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="action-card">
+        <div>
+          <div class="action-card-header">
+            <div class="action-card-icon icon-rose">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <div class="action-card-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </div>
+          <div class="action-card-title">บันทึกประจำวัน</div>
+          <div class="action-card-desc">บันทึกอารมณ์และสิ่งดีๆ ที่เกิดขึ้นในแต่ละวัน</div>
+        </div>
+        <a href="diary.html" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">บันทึกอาการ</a>
+      </div>
+    </div>
+
+    <!-- Alert Banner Section -->
+    <div class="notice-banner">
+      <div class="notice-icon-box">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+      </div>
+      <div>
+        <div class="notice-banner-title">การดูแลสุขภาพใจอย่างต่อเนื่อง</div>
+        <div class="notice-banner-desc">การทำแบบประเมินและบันทึกอาการอย่างสม่ำเสมอ ช่วยให้คุณรับรู้สภาวะอารมณ์และรับการดูแลได้อย่างทันท่วงที</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="../js/auth-guard.js"></script>
+<script src="../js/user-common.js"></script>
+<script src="../js/user.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const user = await checkAuthGuard('user');
+    if (user) {
+      initDashboardPage(user);
+    }
+  });
+</script>
+</body>
+</html>

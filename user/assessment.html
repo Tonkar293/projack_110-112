@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แบบประเมินอาการ - ดูแลสุขภาพใจ</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/user-pages.css">
+</head>
+<body>
+
+<!-- Fullscreen Heartbeat Preloader -->
+<div id="app-preloader">
+  <div class="preloader-content-box">
+    <div class="preloader-heart-wrapper">
+      <div class="preloader-pulse-ring"></div>
+      <div class="preloader-pulse-ring"></div>
+      <div class="preloader-heart-circle">
+        <svg class="preloader-heart-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="#ef4444" stroke="#ffffff"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="preloader-brand-title">ดูแลสุขภาพใจ</div>
+    <div class="preloader-subtitle-text">
+      <span>กำลังโหลดข้อมูล</span>
+      <span class="preloader-loading-dots">
+        <span></span><span></span><span></span>
+      </span>
+    </div>
+    <svg class="preloader-ecg-line" viewBox="0 0 140 28" fill="none">
+      <polyline class="preloader-ecg-polyline" points="0,14 35,14 45,4 55,24 65,9 75,19 85,14 140,14" stroke="rgba(255,255,255,0.9)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+
+<div class="app-layout">
+  <!-- Mobile Header -->
+  <div class="mobile-header">
+    <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1.1rem;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <span>ดูแลสุขภาพใจ</span>
+    </div>
+    <button class="mobile-toggle-btn" aria-label="เปิดเมนู"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="app-sidebar">
+    <div>
+      <div class="sidebar-header">
+        <span class="sidebar-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </span>
+        <span class="sidebar-title">ดูแลสุขภาพใจ</span>
+      </div>
+
+      <ul class="sidebar-menu">
+        <li class="menu-item">
+          <a href="dashboard.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="menu-item active">
+          <a href="assessment.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            <span>แบบประเมินอาการ</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="result.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            <span>ผลการประเมิน</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="history.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+            <span>ประวัติการประเมิน</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="diary.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>บันทึกอาการ</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="consultation.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span>ปรึกษาผู้เชี่ยวชาญ</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="videos.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            <span>วิดีโอการดูแล</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="profile.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>โปรไฟล์</span>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="contact.html">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>ติดต่อเรา</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <button class="btn-sidebar-logout btn-logout-action">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        <span>ออกจากระบบ</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="app-main">
+    <a href="dashboard.html" class="btn-back-dash">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      <span>กลับ Dashboard</span>
+    </a>
+
+    <!-- Header Banner -->
+    <div class="header-banner-card">
+      <h1 style="font-size: 1.6rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.2rem;">แบบประเมินอาการซึมเศร้า (2Q / 9Q)</h1>
+      <p style="color: var(--text-secondary);">กรุณาเลือกคำตอบที่ตรงกับสภาวะความรู้สึกของคุณมากที่สุดในช่วง 2 สัปดาห์ที่ผ่านมา</p>
+    </div>
+
+    <!-- Step Progress Indicator Container -->
+    <div class="assessment-progress-container" style="max-width: 800px;">
+      <div class="progress-header-info">
+        <span>ความคืบหน้าการทำแบบประเมิน</span>
+        <span class="progress-percentage" id="assessmentProgressText">0% (0/3 ข้อ)</span>
+      </div>
+      <div class="assessment-progress-bar">
+        <div class="fill" id="assessmentProgressFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Scoring Scale & Criteria Explanation Card (ชี้แจงเกณฑ์การให้คะแนนและระดับการประเมิน) -->
+    <div class="card" style="max-width: 800px; margin-bottom: 1.75rem; border-left: 5px solid #0e5c54; background: linear-gradient(135deg, #f8fafc 0%, #f0fdf4 100%);">
+      <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e5c54" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: #0e5c54; margin: 0;">ชี้แจงเกณฑ์การให้คะแนนและการประเมินผล</h3>
+      </div>
+      
+      <!-- Scoring scale 0 - 3 -->
+      <div style="margin-bottom: 1.25rem;">
+        <div style="font-size: 0.9rem; font-weight: 700; color: #334155; margin-bottom: 0.6rem;">
+          เกณฑ์ความหมายของตัวเลข (ในช่วง 2 สัปดาห์ที่ผ่านมา):
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.75rem;">
+          <div style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 12px; border: 1.5px solid #cbd5e1; display: flex; align-items: center; gap: 0.75rem;">
+            <span style="display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; background: #e2e8f0; color: #334155; font-weight: 800; font-size: 1.15rem; border-radius: 8px;">0</span>
+            <span style="font-size: 0.9rem; color: #475569; font-weight: 600;">ไม่มีเลย / ไม่เคยมี</span>
+          </div>
+          <div style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 12px; border: 1.5px solid #cbd5e1; display: flex; align-items: center; gap: 0.75rem;">
+            <span style="display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; background: #dbeafe; color: #1e40af; font-weight: 800; font-size: 1.15rem; border-radius: 8px;">1</span>
+            <span style="font-size: 0.9rem; color: #475569; font-weight: 600;">เป็นบางวัน (1 - 7 วัน)</span>
+          </div>
+          <div style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 12px; border: 1.5px solid #cbd5e1; display: flex; align-items: center; gap: 0.75rem;">
+            <span style="display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; background: #fef3c7; color: #b45309; font-weight: 800; font-size: 1.15rem; border-radius: 8px;">2</span>
+            <span style="font-size: 0.9rem; color: #475569; font-weight: 600;">เป็นบ่อย (> 7 วัน)</span>
+          </div>
+          <div style="background: #ffffff; padding: 0.75rem 1rem; border-radius: 12px; border: 1.5px solid #cbd5e1; display: flex; align-items: center; gap: 0.75rem;">
+            <span style="display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; background: #fee2e2; color: #b91c1c; font-weight: 800; font-size: 1.15rem; border-radius: 8px;">3</span>
+            <span style="font-size: 0.9rem; color: #475569; font-weight: 600;">เป็นเกือบทุกวัน</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interpretation Scale 0 - 9 -->
+      <div style="border-top: 1px dashed #cbd5e1; padding-top: 0.85rem;">
+        <div style="font-size: 0.9rem; font-weight: 700; color: #334155; margin-bottom: 0.6rem;">
+          เกณฑ์การแปลผลคะแนนรวม (Evaluation Criteria):
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.6rem; font-size: 0.88rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="badge badge-low" style="padding: 0.25rem 0.6rem;">0 - 2 คะแนน</span>
+            <span style="color: #475569; font-weight: 500;">ระดับปกติ</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="badge badge-medium" style="background: #e0f2fe; color: #0369a1; padding: 0.25rem 0.6rem;">3 - 5 คะแนน</span>
+            <span style="color: #475569; font-weight: 500;">เสี่ยงซึมเศร้าเล็กน้อย</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="badge badge-medium" style="padding: 0.25rem 0.6rem;">6 - 7 คะแนน</span>
+            <span style="color: #475569; font-weight: 500;">เสี่ยงซึมเศร้าปานกลาง</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="badge badge-high" style="padding: 0.25rem 0.6rem;">8 - 9 คะแนน</span>
+            <span style="color: #475569; font-weight: 500;">เสี่ยงซึมเศร้ารุนแรง</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form id="assessmentForm" style="max-width: 800px;">
+      <div id="assessmentQuestionsList">
+        <!-- Question 1 -->
+        <div class="assessment-card">
+          <div class="question-title">1. ในช่วงที่ผ่านมา คุณรู้สึกเศร้าหรือไม่?</div>
+          <div class="choice-number-row">
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q1" value="0" required>
+              <span class="choice-number-badge">0</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q1" value="1">
+              <span class="choice-number-badge">1</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q1" value="2">
+              <span class="choice-number-badge">2</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q1" value="3">
+              <span class="choice-number-badge">3</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="assessment-card">
+          <div class="question-title">2. คุณรู้สึกหมดความสนใจในสิ่งที่เคยชอบหรือไม่?</div>
+          <div class="choice-number-row">
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q2" value="0" required>
+              <span class="choice-number-badge">0</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q2" value="1">
+              <span class="choice-number-badge">1</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q2" value="2">
+              <span class="choice-number-badge">2</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q2" value="3">
+              <span class="choice-number-badge">3</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="assessment-card">
+          <div class="question-title">3. คุณรู้สึกเหนื่อย ไม่มีแรง หรือไม่มีพลังในการทำกิจกรรมต่าง ๆ หรือไม่?</div>
+          <div class="choice-number-row">
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q3" value="0" required>
+              <span class="choice-number-badge">0</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q3" value="1">
+              <span class="choice-number-badge">1</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q3" value="2">
+              <span class="choice-number-badge">2</span>
+            </label>
+            <label class="choice-item choice-number-item">
+              <input type="radio" name="q3" value="3">
+              <span class="choice-number-badge">3</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;">
+        <button type="submit" class="btn btn-primary" style="padding: 0.8rem 2.5rem; font-size: 1.05rem;">
+          ประมวลผลและดูคำแนะนำ
+        </button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<script src="../js/auth-guard.js"></script>
+<script src="../js/user-common.js"></script>
+<script src="../js/user.js"></script>
+<script>
+  function loadDynamicQuestions() {
+    try {
+      const stored = localStorage.getItem('screening_questions');
+      if (stored) {
+        const list = JSON.parse(stored);
+        if (Array.isArray(list) && list.length > 0) {
+          const activeList = list.filter(q => q.status !== 'inactive');
+          if (activeList.length > 0) {
+            const container = document.getElementById('assessmentQuestionsList');
+            if (container) {
+              container.innerHTML = activeList.map((q, idx) => `
+                <div class="assessment-card">
+                  <div class="question-title">${idx + 1}. ${q.text}</div>
+                  <div class="choice-number-row">
+                    <label class="choice-item choice-number-item">
+                      <input type="radio" name="q${idx + 1}" value="0" required>
+                      <span class="choice-number-badge">0</span>
+                    </label>
+                    <label class="choice-item choice-number-item">
+                      <input type="radio" name="q${idx + 1}" value="1">
+                      <span class="choice-number-badge">1</span>
+                    </label>
+                    <label class="choice-item choice-number-item">
+                      <input type="radio" name="q${idx + 1}" value="2">
+                      <span class="choice-number-badge">2</span>
+                    </label>
+                    <label class="choice-item choice-number-item">
+                      <input type="radio" name="q${idx + 1}" value="3">
+                      <span class="choice-number-badge">3</span>
+                    </label>
+                  </div>
+                </div>
+              `).join('');
+            }
+          }
+        }
+      }
+    } catch (e) {}
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadDynamicQuestions();
+    initAssessmentPage();
+    checkAuthGuard('user');
+  });
+</script>
+</body>
+</html>
