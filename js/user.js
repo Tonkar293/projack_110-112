@@ -30,6 +30,13 @@ function getYouTubeThumbnail(url, fallbackThumb = '') {
   return fallbackThumb || 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80';
 }
 
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str).replace(/[&<>"']/g, m => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+  }[m]));
+}
+
 // ---------------------------------------------------------------------
 // 0. Dashboard Page Handler
 // ---------------------------------------------------------------------
@@ -658,8 +665,8 @@ function initDiaryPage() {
               ${moodLabels[d.mood] || 'อารมณ์ระดับ ' + d.mood}
             </span>
           </div>
-          ${d.symptoms ? `<p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.4rem;"><strong>อาการที่พบ:</strong> ${d.symptoms}</p>` : ''}
-          ${d.note ? `<p style="font-size: 0.92rem; color: var(--text-primary); margin-top: 0.25rem;"><strong>บันทึก:</strong> ${d.note}</p>` : ''}
+          ${d.symptoms ? `<p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.4rem;"><strong>อาการที่พบ:</strong> ${escapeHtml(d.symptoms)}</p>` : ''}
+          ${d.note ? `<p style="font-size: 0.92rem; color: var(--text-primary); margin-top: 0.25rem;"><strong>บันทึก:</strong> ${escapeHtml(d.note)}</p>` : ''}
         </div>
       `).join('');
     }

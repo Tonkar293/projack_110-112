@@ -2,6 +2,13 @@
 // create_admin.php
 // Script to create or reset default admin and test user
 
+// Security guard: only allow execution on localhost or CLI
+$isLocal = in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1']) || php_sapi_name() === 'cli';
+if (!$isLocal) {
+    http_response_code(403);
+    die('Access Denied: This script can only be run locally.');
+}
+
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/config/api_helpers.php';
 
